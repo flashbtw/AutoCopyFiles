@@ -12,8 +12,7 @@ do
   filename=`echo $pathToFile | rev | cut -f 1 -d / | rev`
   
   echo "copying $pathToFile to $targetDirectory/$filename and removing it from source afterwards"  
-  cp $pathToFile $targetDirectory/$filename
-  rm $pathToFile
+  mv $pathToFile $targetDirectory/$filename
   
   echo "Setting up rights for $filename"
   chown $fileOwner:$fileOwner $targetDirectory/$filename
